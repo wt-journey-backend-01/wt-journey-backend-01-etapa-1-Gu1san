@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>DevBurguer</title>
+  </head>
+  <body>
+    <h1>DevBurger</h1>
+    <form method="GET" action="/sugestao">
+      <label for="nome">Seu nome:</label>
+      <input type="text" id="nome" name="nome" required />
+
+      <br /><br />
+
+      <label for="ingredientes">Ingredientes do lanche:</label>
+      <textarea id="ingredientes" name="ingredientes" required></textarea>
+
+      <br /><br />
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <br />
+
+    <a href="/contato">Página de Contato</a> |
+    <a href="/api/lanches">Ver API de Lanches</a>
+  </body>
+</html>
