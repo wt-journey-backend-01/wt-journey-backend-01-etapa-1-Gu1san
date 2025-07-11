@@ -6,6 +6,8 @@ const path = require("path");
 
 app.use(express.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, "views")));
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
@@ -45,6 +47,31 @@ app.post("/contato", (req, res) => {
     </html>
   `;
   res.send(html);
+});
+
+app.get("/api/lanches", (req, res) => {
+  const lanches = [
+    {
+      id: 1,
+      nome: "DevBurger Clássico",
+      ingredientes:
+        "Pão brioche, Carne 150g, Queijo cheddar, Alface americana, Tomate fresco, Molho especial",
+    },
+    {
+      id: 2,
+      nome: "Burger de Bacon",
+      ingredientes:
+        "Pão australiano, Carne 180g, Queijo prato, Bacon crocante, Cebola caramelizada, Molho barbecue",
+    },
+    {
+      id: 3,
+      nome: "Commit Veggie",
+      ingredientes:
+        "Pão integral, Burger de grão de bico, Queijo vegano, Rúcula, Tomate seco, Maionese de ervas",
+    },
+  ];
+
+  res.json(lanches);
 });
 
 app.listen(PORT, () => {
